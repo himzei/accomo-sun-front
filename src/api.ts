@@ -3,7 +3,10 @@ import { QueryFunctionContext } from "@tanstack/react-query";
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "https://airbnbproject.onrender.com/",
+  baseURL:
+    process.env.NODE_ENV === "development"
+      ? "http://127.0.0.1:8000/api/v1/"
+      : "https://airbnbproject.onrender.com/",
   withCredentials: true,
 });
 
