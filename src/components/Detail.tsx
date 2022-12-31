@@ -16,6 +16,7 @@ import { useParams } from "react-router-dom";
 import { getRoom } from "../api";
 import DetailInfo from "./DetailInfo";
 import DetailReserv from "./DetailReserv";
+import DetailReview from "./DetailReview";
 
 interface IPhoto {
   file: string;
@@ -110,7 +111,9 @@ export default function Detail() {
             <TabPanel>
               <DetailInfo />
             </TabPanel>
-            <TabPanel></TabPanel>
+            <TabPanel>
+              <DetailReview />
+            </TabPanel>
           </TabPanels>
         </Tabs>
       </VStack>
