@@ -14,7 +14,6 @@ const addressData = {
   tel: "매장통합 콜센터 : 1544-2514 (평일 9-18시, 근무시간 외 ARS 안내)",
   holiday: "설날(음력), 추석 당일",
   address: "대구 북구 동화천로 220",
-  page: "https://www.aladin.co.kr/usedstore/wstoremain.aspx?offcode=Sinsa",
 };
 
 export default function LocationMap() {
@@ -44,7 +43,6 @@ export default function LocationMap() {
               const iwContent = `
 						
 							<div style="padding:5px;">
-								
 								<div style="text-align:center;font-size:12px;font-weight:500">${addressData.address}</div>
 							</div>
 						
