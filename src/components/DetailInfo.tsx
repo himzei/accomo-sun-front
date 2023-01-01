@@ -59,7 +59,7 @@ export default function DetailInfo() {
                   현장에서 그런게있니 없니 따지시는 고객님은 퇴실조치합니다.
                 </Text>
               </VStack>
-              <LocationMap />
+              {/* <LocationMap /> */}
             </VStack>
           </AccordionPanel>
         </AccordionItem>
