@@ -39,7 +39,7 @@ export default function Home() {
 
       {/* 카테고리 SVG */}
       <HStack justifyContent={"space-between"} w="4xl">
-        <Link to="motel">
+        <Link to="motels">
           <VStack spacing="4">
             <Box w="50px" h="50px">
               <Hotel />
