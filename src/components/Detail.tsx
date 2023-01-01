@@ -51,7 +51,7 @@ export default function Detail() {
         <HStack w="4xl" justifyContent={"space-between"} h="400px" spacing="8">
           <VStack w="50%" h="full">
             <Box>
-              <Img src={`${data?.photos[4].file}`} />
+              <Img src={`${data?.photos[3].file}`} />
             </Box>
             <HStack>
               {Array(4)
