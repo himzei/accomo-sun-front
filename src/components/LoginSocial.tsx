@@ -8,7 +8,7 @@ import { AiFillGithub } from "react-icons/ai";
 export default function LoginSocial() {
   const kakaoParams = {
     client_id: "c00c9350689f948254a3cc6207a83134",
-    redirect_uri: "https://accomo-sun-front.onrender.com/social/kakao",
+    redirect_uri: "https://jagioddae.click/social/kakao",
     response_type: "code",
   };
   const params = new URLSearchParams(kakaoParams).toString();
