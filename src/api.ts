@@ -19,7 +19,7 @@ export const getRoom = ({ queryKey }: QueryFunctionContext) => {
 };
 
 export const getMe = () =>
-  instance.get(`/users/me`).then((response) => response.data);
+  instance.get(`users/me`).then((response) => response.data);
 
 // npm i js-cookie
 export const logOut = () =>
