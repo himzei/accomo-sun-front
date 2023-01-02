@@ -12,6 +12,28 @@ export default function LoginSocial() {
     response_type: "code",
   };
   const params = new URLSearchParams(kakaoParams).toString();
+
+  const generateRandomString = (num: number) => {
+    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    let result = "";
+    const charactersLength = characters.length;
+    for (let i = 0; i < num; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+
+    return result;
+  };
+
+  const nStateToken = generateRandomString(20);
+
+  const naverParams = {
+    client_id: "AH87975Atf2Flz5RD1a5",
+    response_type: "code",
+    redirect_uri: "https://jagioddae.click/social/naver",
+    state: nStateToken,
+  };
+  const paramNaver = new URLSearchParams(naverParams).toString();
+
   return (
     <>
       {/* 카카오톡으로 로그인 */}
@@ -43,6 +65,7 @@ export default function LoginSocial() {
       {/* 네이버 로그인 */}
       <Button
         as="a"
+        href={`https://nid.naver.com/oauth2.0/authorize?${paramNaver}`}
         w="sm"
         bg="#00ce17"
         color="white"

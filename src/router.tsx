@@ -2,13 +2,13 @@ import { createBrowserRouter } from "react-router-dom";
 import Detail from "./components/Detail";
 import Login from "./components/Login";
 import Root from "./components/Root";
-import GithubConfirm from "./routes/GithubConfirm";
-
 import Home from "./routes/Home";
+import GithubConfirm from "./routes/GithubConfirm";
 import KakaoConfirm from "./routes/KakaoConfirm";
 import Motel from "./routes/Motel";
 import NotFound from "./routes/NotFound";
 import Users from "./routes/Users";
+import NaverConfirm from "./routes/NaverConfirm";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +46,10 @@ const router = createBrowserRouter([
           {
             path: "kakao",
             element: <KakaoConfirm />,
+          },
+          {
+            path: "naver",
+            element: <NaverConfirm />,
           },
         ],
       },
