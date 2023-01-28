@@ -38,7 +38,7 @@ export default function NaverConfirm() {
 
   useEffect(() => {
     confirmLogin();
-  }, []);
+  });
   return (
     <VStack justifyContent={"center"} my="32">
       <Text color="red.500" fontSize="28" fontWeight={600}>

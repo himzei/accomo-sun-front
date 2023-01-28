@@ -9,6 +9,8 @@ import Motel from "./routes/Motel";
 import NotFound from "./routes/NotFound";
 import Users from "./routes/Users";
 import NaverConfirm from "./routes/NaverConfirm";
+import UploadRoom from "./routes/UploadRoom";
+import UploadPhotos from "./routes/UploadPhotos";
 
 const router = createBrowserRouter([
   {
@@ -33,8 +35,16 @@ const router = createBrowserRouter([
         element: <Motel />,
       },
       {
+        path: "rooms/upload",
+        element: <UploadRoom />,
+      },
+      {
         path: "motels/:roomPk",
         element: <Detail />,
+      },
+      {
+        path: "motels/:roomPk/photos",
+        element: <UploadPhotos />,
       },
       {
         path: "social",

@@ -51,7 +51,7 @@ export default function Detail() {
         <HStack w="4xl" justifyContent={"space-between"} h="400px" spacing="8">
           <VStack w="50%" h="full">
             <Box>
-              <Img src={`${data?.photos[3].file}`} />
+              <Img src={`${data?.photos[3].file || ""}`} />
             </Box>
             <HStack>
               {Array(4)
@@ -59,7 +59,7 @@ export default function Detail() {
                 .map((_, i) => (
                   <Box w="100px" h="60px" bg="red.500" overflow={"hidden"}>
                     <Img
-                      src={`${data?.photos[i].file}`}
+                      src={`${data?.photos[i].file || ""}`}
                       objectFit="cover"
                       objectPosition={"center center"}
                     />

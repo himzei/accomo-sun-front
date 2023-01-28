@@ -1,6 +1,7 @@
-import { Box, HStack, Text, VStack } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Box, Button, HStack, Text, VStack } from "@chakra-ui/react";
+import { Link, useNavigate } from "react-router-dom";
 import { priceFormat } from "../lib/utils";
+import { FaCamera, FaRegHeart } from "react-icons/fa";
 
 interface IRoomProps {
   imageUrl: string;
@@ -10,6 +11,7 @@ interface IRoomProps {
   country: string;
   price: number;
   pk: number;
+  isOwner: boolean;
 }
 
 export default function List({
@@ -20,7 +22,13 @@ export default function List({
   country,
   price,
   rating,
+  isOwner,
 }: IRoomProps) {
+  const navigate = useNavigate();
+  const onCameraClick = (event: React.SyntheticEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    navigate(`/motels/${pk}/photos`);
+  };
   return (
     <Link to={`/motels/${pk}`}>
       <VStack
@@ -44,6 +52,21 @@ export default function List({
           bgGradient="linear(white 15%, black 50%)"
           opacity="0.5"
         />
+        <Button
+          position="absolute"
+          variant={"unstyled"}
+          right="2"
+          top="3"
+          w="20px"
+          h="20px"
+          onClick={onCameraClick}
+        >
+          {isOwner ? (
+            <FaCamera size="20px" />
+          ) : (
+            <FaRegHeart size="20px" color="tomato" />
+          )}
+        </Button>
         <Box zIndex={9} bg="gray.900" px="4" opacity={0.7}>
           <Text color="white">선 주차 및 연박 이용시 이벤트 공지사항 확인</Text>
         </Box>

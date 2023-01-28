@@ -31,12 +31,13 @@ export default function Motel() {
           <List
             key={index}
             pk={room.pk}
-            imageUrl={room.photos[0].file}
+            imageUrl={room.photos[0].file || ""}
             name={room.name}
             rating={room.rating}
             city={room.city}
             country={room.country}
             price={room.price}
+            isOwner={room.is_owner}
           />
         ))}
       </VStack>

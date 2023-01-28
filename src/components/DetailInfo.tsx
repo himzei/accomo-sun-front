@@ -8,7 +8,7 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import LocationMap from "./LocationMap";
+// import LocationMap from "./LocationMap";
 
 export default function DetailInfo() {
   return (

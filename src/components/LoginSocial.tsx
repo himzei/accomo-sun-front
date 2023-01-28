@@ -1,6 +1,6 @@
 import { Button, Text } from "@chakra-ui/react";
 import { RiKakaoTalkFill } from "react-icons/ri";
-import { BsFacebook } from "react-icons/bs";
+import { AiFillGoogleCircle } from "react-icons/ai";
 import { SiNaver } from "react-icons/si";
 
 import { AiFillGithub } from "react-icons/ai";
@@ -53,12 +53,12 @@ export default function LoginSocial() {
       <Button
         as="a"
         w="sm"
-        bg="#006aef"
+        bg="#d15442"
         color="white"
-        leftIcon={<BsFacebook size="20" />}
+        leftIcon={<AiFillGoogleCircle size="24" />}
       >
         <Text fontWeight={600} fontSize={16}>
-          Facebook으로 로그인
+          Google로 로그인
         </Text>
       </Button>
 

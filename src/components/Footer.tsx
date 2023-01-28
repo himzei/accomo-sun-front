@@ -1,84 +1,101 @@
-import { Box, Divider, HStack, Text, VStack } from "@chakra-ui/react";
-import { BsFacebook } from "react-icons/bs";
-import { AiFillInstagram, AiFillGoogleCircle } from "react-icons/ai";
+import { Box, HStack, Text, VStack } from "@chakra-ui/react";
+import { ReactComponent as Facebook } from "../assets/svg/facebook.svg";
+import { ReactComponent as Twitter } from "../assets/svg/twitter.svg";
+import { ReactComponent as Youtube } from "../assets/svg/youtube.svg";
+import { ReactComponent as Insta } from "../assets/svg/insta.svg";
+import { ReactComponent as Kakao } from "../assets/svg/kakao.svg";
 
 export default function Footer() {
   return (
-    <HStack justifyContent={"center"} w="full" bg="gray.100" py={16}>
-      <VStack spacing={8} alignItems="flex-start">
-        <VStack
-          w="4xl"
-          alignItems={"flex-start"}
-          fontSize="xs"
-          color="gray.600"
-          spacing={2}
-        >
-          <HStack spacing={2}>
-            <Text>회사소개</Text>
-            <Box h="12px">
-              <Divider color="gray.200" orientation="vertical" />
-            </Box>
-            <Text>이용약관</Text>
-            <Box h="12px">
-              <Divider color="gray.200" orientation="vertical" />
-            </Box>
-            <Text>
-              <b>개인정보처리방침</b>
+    <HStack justifyContent={"center"} w="full" bg="#575757" py={16}>
+      <VStack w="7xl" spacing={4} alignItems="flex-start" color="white">
+        <HStack justifyContent={"space-between"} w="full" pr="4">
+          <VStack spacing={0} alignItems="flex-start">
+            <Text fontWeight={700} fontSize="28">
+              하모 고객센터
             </Text>
-            <Box h="12px">
-              <Divider color="gray.200" orientation="vertical" />
+            <Text fontWeight={600} fontSize="16">
+              053.242.5454
+            </Text>
+          </VStack>
+          <HStack>
+            <Box
+              w="50px"
+              h="50px"
+              bg="white"
+              rounded="full"
+              display={"flex"}
+              justifyContent="center"
+              alignItems={"center"}
+            >
+              <Facebook />
             </Box>
-            <Text>소비자 분쟁해결 기준 </Text>
-            <Box h="12px">
-              <Divider color="gray.200" orientation="vertical" />
+            <Box
+              w="50px"
+              h="50px"
+              bg="white"
+              rounded="full"
+              display={"flex"}
+              justifyContent="center"
+              alignItems={"center"}
+            >
+              <Insta />
             </Box>
-            <Text>사업자 정보확인</Text>
+            <Box
+              w="50px"
+              h="50px"
+              bg="white"
+              rounded="full"
+              display={"flex"}
+              justifyContent="center"
+              alignItems={"center"}
+            >
+              <Youtube />
+            </Box>
+            <Box
+              w="50px"
+              h="50px"
+              bg="white"
+              rounded="full"
+              display={"flex"}
+              justifyContent="center"
+              alignItems={"center"}
+            >
+              <Twitter />
+            </Box>
+            <Box
+              w="50px"
+              h="50px"
+              bg="white"
+              rounded="full"
+              display={"flex"}
+              justifyContent="center"
+              alignItems={"center"}
+            >
+              <Kakao />
+            </Box>
           </HStack>
-          <HStack spacing={2}>
-            <Text>저기어때 마케팅센터</Text>
-            <Box h="12px">
-              <Divider color="gray.200" orientation="vertical" />
-            </Box>
-            <Text>액티비티 호스트센터</Text>
-            <Box h="12px">
-              <Divider color="gray.200" orientation="vertical" />
-            </Box>
-            <Text>HOTEL 저기어때</Text>
-            <Box h="12px">
-              <Divider color="gray.200" orientation="vertical" />
-            </Box>
-            <Text>콘텐츠산업진흥법에 의한 표시</Text>
-          </HStack>
-        </VStack>
-        <Text fontSize="xs">
-          <b>고객행복센터 1670-6250</b> 오전 9시 ~ 새벽 3시
-        </Text>
-        <VStack alignItems={"flex-start"} fontSize="xs">
-          <Text>(주)저기어때 컴퍼니</Text>
-          <Text>
-            주소 : 서울특별시 강남구 봉은사로 479, 479타워 11층 | 대표이사 :
-            정명훈 | 사업자등록번호: 742-86-00224
-          </Text>
-          <Text>
-            통신판매번호 : 2017-서울강남-01779 | 관광사업자 등록번호:
-            제1026-24호 | 전화번호 : 1670-6250 | 전자우편주소 :
-            help@goodchoice.kr
-          </Text>
-          <Text>
-            (주) 여기어때컴퍼니는 통신판매중개자로서 통신판매의 당사자가 아니며,
-            상품의 예약, 이용 및 환불 등과 관련한 의무와 책임은 각 판매자에게
-            있습니다.
-          </Text>
-        </VStack>
-        <Text fontSize="xs">
-          Copyright GC COMPANY Corp. All rights reserved.
-        </Text>
-        <Box w="full" h="1px" bg="gray.200" />
-        <HStack spacing={4}>
-          <BsFacebook size={"20px"} color="gray" />
-          <AiFillInstagram size="24px" color="gray" />
-          <AiFillGoogleCircle size="24px" color="gray" />
         </HStack>
+        <VStack spacing={0} alignItems="flex-start">
+          <Text fontWeight={600} fontSize={16}>
+            평일 : 09:00 ~ 18:00
+          </Text>
+          <Text fontWeight={600} fontSize={16}>
+            하모는 언제가 고객과 함께합니다.
+          </Text>
+        </VStack>
+        <Text fontWeight={600} fontSize={16}>
+          회사소개 | 이용약관 | 개인정보처리방침
+        </Text>
+        <VStack spacing={0} alignItems="flex-start">
+          <Text fontSize="14">
+            사업자명: (주)하모 | 대표 : 조현일 | 사업자등록번호 : 123-45-67890
+          </Text>
+          <Text fontSize="14">
+            주소 : 대구 중구 국채보상로 123길 16(문화동)
+          </Text>
+        </VStack>
+        <Text fontSize="14">COPYRIGHT 하모 All rights reserved.</Text>
       </VStack>
     </HStack>
   );

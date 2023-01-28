@@ -3,6 +3,9 @@ import {
   Box,
   Button,
   HStack,
+  Input,
+  InputGroup,
+  InputRightElement,
   Menu,
   MenuButton,
   MenuItem,
@@ -11,10 +14,11 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { AiOutlineSearch } from "react-icons/ai";
 import useUser from "../lib/useUser";
 import { logOut } from "../api";
 import { useQueryClient } from "@tanstack/react-query";
+import Logo from "../assets/png/logo.png";
+import { AiOutlineSearch, AiOutlineMenu } from "react-icons/ai";
 
 export default function Header() {
   const { userLoading, isLoggedIn, user } = useUser();
@@ -32,32 +36,44 @@ export default function Header() {
     });
   };
   return (
-    <HStack w="full" justifyContent={"center"} bg="red.500">
-      <HStack justifyContent={"space-between"} w={"5xl"} py={4} px={10}>
-        <Box color="red.500">
-          <Link to={"/"}>
-            <Text
-              fontFamily={"heading"}
-              fontWeight={"700"}
-              fontSize="24"
-              color="white"
-            >
-              저기어때.
-            </Text>
-          </Link>
-        </Box>
-        <HStack spacing={2} color="white">
-          <Box px="8">
-            <AiOutlineSearch size="20px" />
+    <HStack
+      w="full"
+      justifyContent={"center"}
+      bg="white"
+      h="80px"
+      boxShadow={"xs"}
+    >
+      <HStack justifyContent={"space-between"} w={"7xl"} py={4} px={4}>
+        <HStack spacing={8}>
+          <Box>
+            <Link to={"/"}>
+              <img src={Logo} alt="logo" />
+            </Link>
           </Box>
-          <Button variant={"ghost"}>내주변</Button>
-          <Button variant={"ghost"}>예약내역</Button>
-          <Button variant={"ghost"}>더보기</Button>
+          <Box>
+            <InputGroup size="md">
+              <Input
+                rounded={"full"}
+                w="md"
+                pr="4.5rem"
+                type="text"
+                placeholder="지역, 공간유형, 공간명으로 검색해 보세요"
+              />
+              <InputRightElement mr="1">
+                <AiOutlineSearch color="gray" size="20" />
+              </InputRightElement>
+            </InputGroup>
+          </Box>
+        </HStack>
+        <HStack spacing={1} color="black">
+          <Button variant={"ghost"}>
+            <AiOutlineMenu size="20" />
+          </Button>
           {!userLoading ? (
             !isLoggedIn ? (
               <>
                 <Link to="login">
-                  <Button variant={"ghost"}>로그인</Button>
+                  <Avatar size="sm" />
                 </Link>
               </>
             ) : (
@@ -67,8 +83,19 @@ export default function Header() {
                     <Avatar name={user.name} src={user.avatar} size="sm" />
                   </MenuButton>
                   <MenuList>
-                    <MenuItem onClick={onLogOut}>
-                      <Text color="black">로그아웃</Text>
+                    {user?.is_host ? (
+                      <Link to="/rooms/upload">
+                        <MenuItem py="2">
+                          <Text color="gray.700" fontSize="14">
+                            Upload room
+                          </Text>
+                        </MenuItem>
+                      </Link>
+                    ) : null}
+                    <MenuItem onClick={onLogOut} py="2">
+                      <Text color="gray.700" fontSize="14">
+                        로그아웃
+                      </Text>
                     </MenuItem>
                   </MenuList>
                 </Menu>

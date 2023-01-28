@@ -1,8 +1,11 @@
 import { extendTheme } from "@chakra-ui/react";
+import "@fontsource/noto-sans";
+import "@noonnu/pretendard-regular";
 
 const theme = extendTheme({
   fonts: {
-    heading: `'Jalnan'`,
+    heading: `Pretendard-Regular`,
+    body: "Pretendard-Regular",
   },
 });
 
