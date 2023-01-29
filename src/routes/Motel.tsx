@@ -1,7 +1,8 @@
-import { HStack, VStack } from "@chakra-ui/react";
+import { Grid, Text, VStack } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
 import { getRooms } from "../api";
-import List from "../components/List";
+import Category from "../components/Category";
+import ListThree from "../components/ListThree";
 
 interface IPhoto {
   pk: string;
@@ -25,22 +26,23 @@ export default function Motel() {
 
   console.log(isLoading, data);
   return (
-    <HStack w="full" justifyContent={"center"} py={16}>
-      <VStack w="4xl" spacing="0">
-        {data?.map((room, index) => (
-          <List
-            key={index}
-            pk={room.pk}
-            imageUrl={room.photos[0].file || ""}
-            name={room.name}
-            rating={room.rating}
-            city={room.city}
-            country={room.country}
-            price={room.price}
-            isOwner={room.is_owner}
-          />
-        ))}
+    <VStack w="full" alignItems={"center"} spacing={20} my={20}>
+      {/* 카테고리 */}
+      <Category />
+
+      {/* 3열 스터디룸 리스트 */}
+      <VStack w="7xl" alignItems={"start"}>
+        <Text fontSize="28" fontWeight={700} mb={4}>
+          최근 본 상품의 연관상품
+        </Text>
+        <Grid templateColumns={"repeat(3, 1fr)"} gap="4" rowGap={6}>
+          {Array(24)
+            .fill("")
+            .map((_, i) => (
+              <ListThree key={i} />
+            ))}
+        </Grid>
       </VStack>
-    </HStack>
+    </VStack>
   );
 }

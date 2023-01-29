@@ -13,14 +13,7 @@ import {
   Grid,
   GridItem,
 } from "@chakra-ui/react";
-import { ReactComponent as One } from "../assets/svg/1.svg";
-import { ReactComponent as Two } from "../assets/svg/2.svg";
-import { ReactComponent as Three } from "../assets/svg/3.svg";
-import { ReactComponent as Four } from "../assets/svg/4.svg";
-import { ReactComponent as Five } from "../assets/svg/5.svg";
-import { ReactComponent as Six } from "../assets/svg/6.svg";
-import { ReactComponent as Seven } from "../assets/svg/7.svg";
-import { ReactComponent as Eight } from "../assets/svg/8.svg";
+
 import { ReactComponent as About1 } from "../assets/svg/about1.svg";
 import { ReactComponent as About2 } from "../assets/svg/about2.svg";
 import { ReactComponent as About3 } from "../assets/svg/about3.svg";
@@ -36,6 +29,8 @@ import { BsFillPersonFill } from "react-icons/bs";
 import { FaTrain } from "react-icons/fa";
 import { ImStarFull, ImStarHalf, ImStarEmpty } from "react-icons/im";
 import { AiOutlineHeart } from "react-icons/ai";
+import Category from "../components/Category";
+import ListThree from "../components/ListThree";
 
 export default function Home() {
   const settings = {
@@ -76,8 +71,11 @@ export default function Home() {
           <Text fontSize="30px" fontWeight={600}>
             스터디룸 예약은 하모
           </Text>
-          <Text fontSize="50px" fontWeight={900} lineHeight="60px">
-            3D 공간투어 & AI추천공간
+          <Text as="span" fontSize="50px" fontWeight={900} lineHeight="60px">
+            <Text as="span" color="red" fontFamily={"Monteserat"}>
+              3D
+            </Text>{" "}
+            공간투어 & AI추천공간
             <br /> 하모 플랫폼
           </Text>
           <Box h={8} />
@@ -88,136 +86,7 @@ export default function Home() {
       </Box>
 
       {/* 카테고리 SVG */}
-      <HStack justifyContent={"space-between"} w="7xl" h="156px">
-        <Link to="motels">
-          <VStack spacing="4">
-            <Box
-              w="120px"
-              h="120px"
-              bg="gray.100"
-              rounded="full"
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-            >
-              <One height="50px" width="50px" />
-            </Box>
-            <Text>카페테마</Text>
-          </VStack>
-        </Link>
-        <Link to="motels">
-          <VStack spacing="4">
-            <Box
-              w="120px"
-              h="120px"
-              bg="gray.100"
-              rounded="full"
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-            >
-              <Two height="50px" width="50px" />
-            </Box>
-            <Text>카페테마</Text>
-          </VStack>
-        </Link>
-        <Link to="motels">
-          <VStack spacing="4">
-            <Box
-              w="120px"
-              h="120px"
-              bg="gray.100"
-              rounded="full"
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-            >
-              <Three height="50px" width="50px" />
-            </Box>
-            <Text>카페테마</Text>
-          </VStack>
-        </Link>
-        <Link to="motels">
-          <VStack spacing="4">
-            <Box
-              w="120px"
-              h="120px"
-              bg="gray.100"
-              rounded="full"
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-            >
-              <Four height="50px" width="50px" />
-            </Box>
-            <Text>카페테마</Text>
-          </VStack>
-        </Link>
-        <Link to="motels">
-          <VStack spacing="4">
-            <Box
-              w="120px"
-              h="120px"
-              bg="gray.100"
-              rounded="full"
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-            >
-              <Five height="50px" width="50px" />
-            </Box>
-            <Text>카페테마</Text>
-          </VStack>
-        </Link>
-        <Link to="motels">
-          <VStack spacing="4">
-            <Box
-              w="120px"
-              h="120px"
-              bg="gray.100"
-              rounded="full"
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-            >
-              <Six height="50px" width="50px" />
-            </Box>
-            <Text>카페테마</Text>
-          </VStack>
-        </Link>
-        <Link to="motels">
-          <VStack spacing="4">
-            <Box
-              w="120px"
-              h="120px"
-              bg="gray.100"
-              rounded="full"
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-            >
-              <Seven height="50px" width="50px" />
-            </Box>
-            <Text>카페테마</Text>
-          </VStack>
-        </Link>
-        <Link to="motels">
-          <VStack spacing="4">
-            <Box
-              w="120px"
-              h="120px"
-              bg="gray.100"
-              rounded="full"
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-            >
-              <Eight height="50px" width="50px" />
-            </Box>
-            <Text>카페테마</Text>
-          </VStack>
-        </Link>
-      </HStack>
+      <Category />
 
       {/* 최근 본 상품의 연관상품 */}
       <VStack w="7xl" alignItems={"start"}>
@@ -229,70 +98,7 @@ export default function Home() {
           {Array(6)
             .fill("")
             .map((_, i) => (
-              <GridItem w="100%" key={i} position="relative">
-                <VStack alignItems={"flex-start"}>
-                  <Box rounded="xl" overflow={"hidden"}>
-                    <Image
-                      width="416px"
-                      height="234px"
-                      src={
-                        "https://images.unsplash.com/photo-1503423571797-2d2bb372094a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
-                      }
-                    />
-                  </Box>
-                  <VStack spacing="1">
-                    <Text fontSize={22} fontWeight={600}>
-                      [동성로]아이캔 스터디룸
-                    </Text>
-                    <Text fontSize={14}>#취업스터디룸 #멋진뷰 #스터디카페</Text>
-                  </VStack>
-                  <HStack spacing="2">
-                    <HStack>
-                      <Text color="#D50000" fontSize="24" fontWeight={600}>
-                        10,000
-                      </Text>
-                      <Text color="gray.700" fontSize="12">
-                        원/시간
-                      </Text>
-                    </HStack>
-                    <HStack spacing={1}>
-                      <BsFillPersonFill color="gray" />
-                      <Text fontSize="12" color="gray.700">
-                        4~12인
-                      </Text>
-                    </HStack>
-                    <HStack spacing={1}>
-                      <FaTrain color="gray" />
-                      <Text fontSize="12" color="gray.700">
-                        중앙로역
-                      </Text>
-                    </HStack>
-                  </HStack>
-                </VStack>
-                <Box
-                  position={"absolute"}
-                  top="0"
-                  left="0"
-                  w="full"
-                  h="full"
-                  px="4"
-                  pt="4"
-                >
-                  <HStack w="full" justifyContent={"space-between"}>
-                    <Box>
-                      <AiOutlineHeart color="#D50000" size="24" />
-                    </Box>
-                    <HStack spacing="1" alignItems={"center"}>
-                      <Box>
-                        <ImStarFull color="white" />
-                      </Box>
-                      <Text color="white" fontSize="14">
-                        4.95
-                      </Text>
-                    </HStack>
-                  </HStack>
-                </Box>
-              </GridItem>
+              <ListThree />
             ))}
         </Grid>
       </VStack>
@@ -383,7 +189,13 @@ export default function Home() {
                       </HStack>
                       <HStack spacing="2">
                         <HStack>
-                          <Text color="#D50000" fontSize="24" fontWeight={600}>
+                          <Text
+                            color="#D50000"
+                            fontSize="24"
+                            fontWeight={700}
+                            fontFamily={"Monteserat"}
+                            as="i"
+                          >
                             10,000
                           </Text>
                           <Text color="gray.700" fontSize="12">
@@ -439,7 +251,7 @@ export default function Home() {
                 lineHeight={"32px"}
                 color="red.500"
               >
-                <b>저기어때</b>
+                <b>하모</b>
                 <br /> 광고 신청하기
               </Text>
               <Text>
@@ -536,7 +348,13 @@ export default function Home() {
                     </VStack>
                     <HStack spacing="2">
                       <HStack>
-                        <Text color="#D50000" fontSize="24" fontWeight={600}>
+                        <Text
+                          color="#D50000"
+                          fontSize="24"
+                          fontWeight={700}
+                          fontFamily={"Monteserat"}
+                          as="i"
+                        >
                           10,000
                         </Text>
                         <Text color="white" fontSize="12">

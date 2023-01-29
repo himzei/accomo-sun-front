@@ -1,5 +1,5 @@
-import { Box, HStack, Text, VStack } from "@chakra-ui/react";
-
+import { Box, HStack, Image, Text, VStack } from "@chakra-ui/react";
+import Logo from "../assets/png/logo.png";
 import LoginEmail from "./LoginEmail";
 import LoginSocial from "./LoginSocial";
 
@@ -8,9 +8,7 @@ export default function Login() {
     <HStack w="full" justifyContent={"center"} alignItems="center">
       <VStack py={24}>
         <Box py={4}>
-          <Text fontFamily={"heading"} color="red.500" fontSize={"2xl"}>
-            저기어때
-          </Text>
+          <Image src={Logo} w="100px" />
         </Box>
 
         {/* 소셜 로그인 컴포넌트 임포트 */}
