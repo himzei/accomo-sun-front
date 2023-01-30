@@ -25,7 +25,7 @@ export default function DetailInfo() {
           </h2>
           <AccordionPanel pb={4}>
             <VStack
-              w="4xl"
+              w="7xl"
               bg="gray.100"
               py="8"
               px="4"

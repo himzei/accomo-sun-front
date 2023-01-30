@@ -5,7 +5,6 @@ import {
   GridItem,
   HStack,
   Image,
-  Img,
   Text,
   VStack,
 } from "@chakra-ui/react";

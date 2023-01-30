@@ -21,6 +21,7 @@ import { AiFillHeart } from "react-icons/ai";
 import { FiShare } from "react-icons/fi";
 import { ImStarFull, ImStarHalf, ImStarEmpty } from "react-icons/im";
 import LocationMap from "./LocationMap";
+import DetailRefund from "./DetailRefund";
 
 interface IPhoto {
   file: string;
@@ -146,7 +147,7 @@ export default function Detail() {
             <DetailInfo />
           </TabPanel>
           <TabPanel>
-            <DetailReview />
+            <DetailRefund />
           </TabPanel>
           <TabPanel>
             <DetailReview />

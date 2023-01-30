@@ -89,7 +89,7 @@ export default function LocationMap() {
     <>
       <VStack w="full" alignItems={"flex-start"} spacing="8">
         <Stack w="full" h="400px">
-          <Box as="div" w="full" h="300px" id="mapKakao" />
+          <Box as="div" w="full" h="full" id="mapKakao" />
         </Stack>
         <VStack spacing={"2"} alignItems="flex-start" w="full">
           <Text fontSize="18" fontWeight={600}>
@@ -119,7 +119,24 @@ export default function LocationMap() {
             px="4"
             spacing={6}
             alignItems="flex-start"
-          ></VStack>
+          >
+            <VStack spacing={1} w="full" alignItems={"flex-start"}>
+              <Text>무료주차</Text>
+              <Text fontSize="14" color="gray.700">
+                지하 타워 주차장 2개 포함 지상주차장 총 40대 주차가능 -선주차는
+                프런트에 문의후 가능 -발렛서비스 제공 지상주차장으로 입차후
+                차량키는 차에두고 로비로 들어오심됩니다. 총 40대 주차시설 보유
+              </Text>
+            </VStack>
+            <VStack spacing={1} w="full" alignItems={"flex-start"}>
+              <Text>유료주차</Text>
+              <Text fontSize="14" color="gray.700">
+                지하 타워 주차장 2개 포함 지상주차장 총 40대 주차가능 -선주차는
+                프런트에 문의후 가능 -발렛서비스 제공 지상주차장으로 입차후
+                차량키는 차에두고 로비로 들어오심됩니다. 총 40대 주차시설 보유
+              </Text>
+            </VStack>
+          </VStack>
         </VStack>
       </VStack>
     </>

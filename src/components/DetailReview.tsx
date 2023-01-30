@@ -4,8 +4,8 @@ import Reviews from "./Reviews";
 
 export default function DetailReview() {
   return (
-    <VStack w="4xl">
-      <VStack spacing={4} py="6" w="full">
+    <VStack w="7xl">
+      <VStack spacing={4} py="8" w="full">
         <VStack w="full" alignItems={"center"} spacing="0">
           <Box>
             <Text fontSize="24">추천해요</Text>
