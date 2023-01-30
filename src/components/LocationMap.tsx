@@ -19,84 +19,53 @@ const addressData = {
   address: "대구 북구 동화천로 220",
 };
 
-export default function LocationMap() {
+export default function LocationMap(change: any) {
   useEffect(() => {
-    const onLoadKakaoMap = () => {
-      window.kakao.maps.load(() => {
-        const geocoder = new window.kakao.maps.services.Geocoder(); // 주소-좌표 반환 객체를 생성
-        // 주소로 좌표를 검색
-        geocoder.addressSearch(
-          addressData.address,
-          (result: any, status: any) => {
-            if (status === window.kakao.maps.services.Status.OK) {
-              // 정상적으로 검색이 완료됐으면
-              var coords = new window.kakao.maps.LatLng(
-                result[0].y,
-                result[0].x
-              );
+    let map;
+    const geocoder = new window.kakao.maps.services.Geocoder(); // 주소-좌표 반환 객체를 생성
+    // 주소로 좌표를 검색
+    geocoder.addressSearch(addressData.address, (result: any, status: any) => {
+      if (status === window.kakao.maps.services.Status.OK) {
+        // 정상적으로 검색이 완료됐으면
+        var coords = new window.kakao.maps.LatLng(result[0].y, result[0].x);
 
-              // 지도를 생성
-              const container = document.querySelector(
-                "#mapKakao"
-              ) as HTMLElement;
-              const options = {
-                center: coords,
-                level: 3,
-              };
-              const iwContent = `
-						
-							<div style="padding:5px;">
-								<div style="text-align:center;font-size:12px;font-weight:500">${addressData.address}</div>
-							</div>
-						
-						`;
+        // 지도를 생성
+        const container = document.querySelector("#mapKakao") as HTMLElement;
+        const options = {
+          center: coords,
+          level: 3,
+        };
+        const iwContent = `
+					<div style="padding:5px;">
+						<div style="text-align:center;font-size:12px;font-weight:500">${addressData.address}</div>
+					</div>
+				`;
+        map = new window.kakao.maps.Map(container, options);
 
-              const map = new window.kakao.maps.Map(container, options);
+        // 결과값으로 받은 위치를 마커로 표시
+        // new window.kakao.maps.Marker({
+        //   map: map,
+        //   position: coords,
+        // });
 
-              map.relayout();
-
-              // 결과값으로 받은 위치를 마커로 표시
-              new window.kakao.maps.Marker({
-                map: map,
-                position: coords,
-              });
-
-              new window.kakao.maps.InfoWindow({
-                map: map,
-                position: coords,
-                content: iwContent,
-              });
-            }
-            // else {
-            //   // 정상적으로 좌표가 검색이 안 될 경우 디폴트 좌표로 검색
-            //   const container = document.getElementById("map") as HTMLElement;
-            //   const options = {
-            //     center: new window.kakao.maps.LatLng(33.450701, 126.570667),
-            //     level: 3,
-            //   };
-            //   // 지도를 생성
-            //   const map = new window.kakao.maps.Map(container, options);
-            //   new window.kakao.maps.Marker({
-            //     map: map,
-            //     position: coords,
-            //   });
-            // }
-          }
-        );
-      });
-    };
-    onLoadKakaoMap();
-  });
+        new window.kakao.maps.InfoWindow({
+          map: map,
+          position: coords,
+          content: iwContent,
+        });
+      }
+    });
+  }, [change]);
 
   return (
     <>
       <VStack w="full" alignItems={"flex-start"} spacing="8">
         <Stack w="full" h="400px">
-          <Box as="div" w="full" h="full" id="mapKakao" />
+          <Box as="div" w="100%" h="100%" id="mapKakao" />
         </Stack>
         <VStack spacing={"2"} alignItems="flex-start" w="full">
           <Text fontSize="18" fontWeight={600}>
-            위치
+            위치dd
           </Text>
           <HStack>
             <ImLocation />

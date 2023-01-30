@@ -1,8 +1,8 @@
+import { useState } from "react";
 import {
   Avatar,
   Box,
   HStack,
-  Image,
   Tab,
   TabList,
   TabPanel,
@@ -11,6 +11,8 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { getRoom } from "../api";
@@ -48,6 +50,12 @@ interface IRoomDetail {
 }
 
 export default function Detail() {
+  const [locationStyle, setLocationStyle] = useState({});
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   const { roomPk } = useParams();
   const { isLoading, data } = useQuery<IRoomDetail>(["room", roomPk], getRoom);
   console.log(isLoading, data);
@@ -140,7 +148,11 @@ export default function Detail() {
       <Tabs w="7xl">
         <TabList>
           <Tab>스터디룸선택</Tab>
-          <Tab>위치/교통</Tab>
+          <Tab
+            onClick={() => setLocationStyle({ width: "100%", height: "100%" })}
+          >
+            위치/교통
+          </Tab>
           <Tab>시설안내</Tab>
           <Tab>환불정책</Tab>
           <Tab>이용후기</Tab>
@@ -150,7 +162,7 @@ export default function Detail() {
             <DetailReserv />
           </TabPanel>
           <TabPanel>
-            <LocationMap />
+            <LocationMap change={locationStyle} />
           </TabPanel>
           <TabPanel>
             <DetailInfo />

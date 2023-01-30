@@ -3,6 +3,7 @@ import { BsFillPersonFill } from "react-icons/bs";
 import { ImStarFull } from "react-icons/im";
 import { AiOutlineHeart } from "react-icons/ai";
 import { FaTrain } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function ListThree() {
   return (
@@ -17,6 +18,7 @@ export default function ListThree() {
             }
           />
         </Box>
+
         <VStack spacing="1">
           <Text fontSize={22} fontWeight={600}>
             [동성로]아이캔 스터디룸
@@ -51,29 +53,31 @@ export default function ListThree() {
           </HStack>
         </HStack>
       </VStack>
-      <Box
-        position={"absolute"}
-        top="0"
-        left="0"
-        w="full"
-        h="full"
-        px="4"
-        pt="4"
-      >
-        <HStack w="full" justifyContent={"space-between"}>
-          <Box>
-            <AiOutlineHeart color="#D50000" size="24" />
-          </Box>
-          <HStack spacing="1" alignItems={"center"}>
+      <Link to="/motels/1">
+        <Box
+          position={"absolute"}
+          top="0"
+          left="0"
+          w="full"
+          h="full"
+          px="4"
+          pt="4"
+        >
+          <HStack w="full" justifyContent={"space-between"}>
             <Box>
-              <ImStarFull color="white" />
+              <AiOutlineHeart color="#D50000" size="24" />
             </Box>
-            <Text color="white" fontSize="14">
-              4.95
-            </Text>
+            <HStack spacing="1" alignItems={"center"}>
+              <Box>
+                <ImStarFull color="white" />
+              </Box>
+              <Text color="white" fontSize="14">
+                4.95
+              </Text>
+            </HStack>
           </HStack>
-        </HStack>
-      </Box>
+        </Box>
+      </Link>
     </GridItem>
   );
 }

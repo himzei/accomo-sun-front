@@ -71,11 +71,8 @@ export default function Home() {
           <Text fontSize="30px" fontWeight={600}>
             스터디룸 예약은 하모
           </Text>
-          <Text as="span" fontSize="50px" fontWeight={900} lineHeight="60px">
-            <Text as="span" color="red" fontFamily={"Monteserat"}>
-              3D
-            </Text>{" "}
-            공간투어 & AI추천공간
+          <Text as="span" fontWeight={900} fontSize="50px" lineHeight="60px">
+            3D 공간투어 & AI 추천공간
             <br /> 하모 플랫폼
           </Text>
           <Box h={8} />
