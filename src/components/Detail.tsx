@@ -22,6 +22,7 @@ import { FiShare } from "react-icons/fi";
 import { ImStarFull, ImStarHalf, ImStarEmpty } from "react-icons/im";
 import LocationMap from "./LocationMap";
 import DetailRefund from "./DetailRefund";
+import Iframe from "react-iframe";
 
 interface IPhoto {
   file: string;
@@ -50,6 +51,7 @@ export default function Detail() {
   const { roomPk } = useParams();
   const { isLoading, data } = useQuery<IRoomDetail>(["room", roomPk], getRoom);
   console.log(isLoading, data);
+
   return (
     <VStack w="full" justifyContent={"center"} py="20" spacing="12">
       {/* 디테일 타이틀 */}
@@ -90,10 +92,17 @@ export default function Detail() {
       {/* 3D 메타포트 */}
       <HStack w="7xl" px="4">
         <Box overflow={"hidden"} w="full" h="720px">
-          <Image
+          <Iframe
+            width="100%"
+            height="100%"
+            url="https://my.matterport.com/show/?m=feMk5TKzY19&play=1"
+            allow="xr-spatial-tracking"
+            allowFullScreen
+          ></Iframe>
+          {/* <Image
             objectFit={"cover"}
             src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
-          />
+          /> */}
         </Box>
       </HStack>
 

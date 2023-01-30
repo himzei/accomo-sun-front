@@ -30,7 +30,6 @@ export default function ListThree() {
               color="#D50000"
               fontSize="24"
               fontWeight={700}
-              as="i"
             >
               10,000
             </Text>

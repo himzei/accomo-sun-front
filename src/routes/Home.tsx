@@ -194,7 +194,6 @@ export default function Home() {
                             fontSize="24"
                             fontWeight={700}
                             fontFamily={"Monteserat"}
-                            as="i"
                           >
                             10,000
                           </Text>
@@ -353,7 +352,6 @@ export default function Home() {
                           fontSize="24"
                           fontWeight={700}
                           fontFamily={"Monteserat"}
-                          as="i"
                         >
                           10,000
                         </Text>
