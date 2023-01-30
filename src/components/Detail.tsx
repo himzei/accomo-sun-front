@@ -1,7 +1,8 @@
 import {
+  Avatar,
   Box,
   HStack,
-  Img,
+  Image,
   Tab,
   TabList,
   TabPanel,
@@ -11,12 +12,15 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
-
 import { useParams } from "react-router-dom";
 import { getRoom } from "../api";
 import DetailInfo from "./DetailInfo";
 import DetailReserv from "./DetailReserv";
 import DetailReview from "./DetailReview";
+import { AiFillHeart } from "react-icons/ai";
+import { FiShare } from "react-icons/fi";
+import { ImStarFull, ImStarHalf, ImStarEmpty } from "react-icons/im";
+import LocationMap from "./LocationMap";
 
 interface IPhoto {
   file: string;
@@ -46,77 +50,109 @@ export default function Detail() {
   const { isLoading, data } = useQuery<IRoomDetail>(["room", roomPk], getRoom);
   console.log(isLoading, data);
   return (
-    <HStack w="full" justifyContent={"center"} py="16">
-      <VStack w="full" spacing={16}>
-        <HStack w="4xl" justifyContent={"space-between"} h="400px" spacing="8">
-          <VStack w="50%" h="full">
-            <Box>
-              <Img src={`${data?.photos[3].file || ""}`} />
-            </Box>
-            <HStack>
-              {Array(4)
-                .fill("")
-                .map((_, i) => (
-                  <Box w="100px" h="60px" bg="red.500" overflow={"hidden"}>
-                    <Img
-                      src={`${data?.photos[i].file || ""}`}
-                      objectFit="cover"
-                      objectPosition={"center center"}
-                    />
-                  </Box>
-                ))}
+    <VStack w="full" justifyContent={"center"} py="20" spacing="12">
+      {/* 디테일 타이틀 */}
+      <VStack w="7xl" spacing={0} alignItems="flex-start" px="4">
+        <HStack justifyContent={"space-between"} w="full">
+          <Text fontSize="28" fontWeight={600}>
+            최고의 전망을 보유한 스터디룸, 조용한 공간
+          </Text>
+          <HStack spacing="2">
+            <HStack spacing="1">
+              <FiShare />
+              <Text fontSize="14" as="u">
+                공유하기
+              </Text>
             </HStack>
-          </VStack>
-          <VStack w="50%" h="full" alignItems={"flex-start"}>
-            <HStack>
-              <Box bg="gray.400" px="1">
-                <Text color="white" fontSize="sm">
-                  비즈니스
-                </Text>
+            <HStack spacing="1">
+              <AiFillHeart color="#D50005" />
+              <Text fontSize="14" as="u">
+                찜하기
+              </Text>
+            </HStack>
+          </HStack>
+        </HStack>
+        <Text fontSize="22" color="gray.400">
+          대구 동성로에 위치한 취업성공맛집!
+        </Text>
+        <HStack py="2" color="gray.600">
+          {Array(5)
+            .fill("")
+            .map((_, i) => (
+              <Box key={i} border={"1px"} rounded="full" px="4" py="1">
+                <Text fontSize="12">#대구스터디룸</Text>
               </Box>
-              <Text fontWeight={600} fontSize="22">
-                {data?.name}
-              </Text>
-            </HStack>
-            <Text>서울 강남구 논현동</Text>
-            <VStack
-              w="full"
-              bg="gray.100"
-              h="310px"
-              p="4"
-              alignItems={"flex-start"}
-            >
-              <Text fontWeight={600} fontSize="14">
-                사장님 한마디
-              </Text>
-              <Text fontSize="14" color="gray.700">
-                엘리에나 호텔은 이탈리아 출신 교수를 주축으로 국내 유수의
-                디자이너 15인이 참여하여 시크하고 현대적인 감각을 살려
-                스타일리쉬하고 세련된 디자인을 구현하였습니다
-              </Text>
-            </VStack>
+            ))}
+        </HStack>
+      </VStack>
+
+      {/* 3D 메타포트 */}
+      <HStack w="7xl" px="4">
+        <Box overflow={"hidden"} w="full" h="720px">
+          <Image
+            objectFit={"cover"}
+            src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+          />
+        </Box>
+      </HStack>
+
+      {/* 사업자정보 */}
+      <VStack w="7xl" alignItems={"flex-start"} px="4" spacing={4}>
+        <HStack spacing="4">
+          <Avatar />
+          <VStack spacing={0} alignItems="flex-start">
+            <Text fontSize="20" fontWeight={600}>
+              아이캔 스터디룸
+            </Text>
+            <Text fontSize="14" color="gray.400">
+              회원가입일 : 2023년 1월
+            </Text>
           </VStack>
         </HStack>
-
-        <Tabs>
-          <TabList>
-            <Tab>객실안내/예약</Tab>
-            <Tab>숙소정보</Tab>
-            <Tab>리뷰</Tab>
-          </TabList>
-          <TabPanels>
-            <TabPanel>
-              <DetailReserv />
-            </TabPanel>
-            <TabPanel>
-              <DetailInfo />
-            </TabPanel>
-            <TabPanel>
-              <DetailReview />
-            </TabPanel>
-          </TabPanels>
-        </Tabs>
+        <HStack>
+          <HStack justifyContent={"center"} spacing="1">
+            <ImStarFull color="#ff9b25" size="14" />
+            <ImStarFull color="#ff9b25" size="14" />
+            <ImStarFull color="#ff9b25" size="14" />
+            <ImStarHalf color="#ff9b25" size="14" />
+            <ImStarEmpty color="#ff9b25" size="14" />
+          </HStack>
+          <Text fontSize="16">4.95(6,250)</Text>
+        </HStack>
+        <Text>
+          안녕하세요. 숙박 호스팅을 전문적으로 하는 떠나요입니다. 오랜 기간 동안
+          숙박 업체를 관리해온 신뢰를 바탕으로 설레는 여행 동안 편안한 쉼을
+          제공할 수 있도록 하겠습니다.
+        </Text>
       </VStack>
-    </HStack>
+
+      {/* TAB */}
+      <Tabs w="7xl">
+        <TabList>
+          <Tab>스터디룸선택</Tab>
+          <Tab>위치/교통</Tab>
+          <Tab>시설안내</Tab>
+          <Tab>환불정책</Tab>
+          <Tab>이용후기</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>
+            <DetailReserv />
+          </TabPanel>
+          <TabPanel>
+            <LocationMap />
+          </TabPanel>
+          <TabPanel>
+            <DetailInfo />
+          </TabPanel>
+          <TabPanel>
+            <DetailReview />
+          </TabPanel>
+          <TabPanel>
+            <DetailReview />
+          </TabPanel>
+        </TabPanels>
+      </Tabs>
+    </VStack>
   );
 }

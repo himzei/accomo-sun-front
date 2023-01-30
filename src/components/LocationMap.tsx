@@ -1,5 +1,8 @@
-import { Box } from "@chakra-ui/react";
+import { Box, HStack, Stack, Text, VStack } from "@chakra-ui/react";
 import { useEffect } from "react";
+import { ImLocation } from "react-icons/im";
+import { MdDirectionsSubway } from "react-icons/md";
+import { FaBus } from "react-icons/fa";
 
 declare global {
   interface Window {
@@ -84,9 +87,41 @@ export default function LocationMap() {
 
   return (
     <>
-      <Box w="full" h="400px">
-        <Box as="div" w="full" h="full" id="mapKakao" />
-      </Box>
+      <VStack w="full" alignItems={"flex-start"} spacing="8">
+        <Stack w="full" h="400px">
+          <Box as="div" w="full" h="300px" id="mapKakao" />
+        </Stack>
+        <VStack spacing={"2"} alignItems="flex-start" w="full">
+          <Text fontSize="18" fontWeight={600}>
+            위치
+          </Text>
+          <HStack>
+            <ImLocation />
+            <Text>대구 중구 국채보상로 123길 16, 3층(문화동 9-14)</Text>
+          </HStack>
+          <HStack>
+            <MdDirectionsSubway />
+            <Text>1호선 중앙로역 19번출구</Text>
+          </HStack>
+          <HStack>
+            <FaBus size="14" />
+            <Text>국채보상로 앞 332번 228번</Text>
+          </HStack>
+        </VStack>
+        <VStack spacing="2" alignItems={"flex-start"} w="full">
+          <Text fontSize="18" fontWeight={600}>
+            주차
+          </Text>
+          <VStack
+            w="full"
+            bg="gray.100"
+            py="8"
+            px="4"
+            spacing={6}
+            alignItems="flex-start"
+          ></VStack>
+        </VStack>
+      </VStack>
     </>
   );
 }
