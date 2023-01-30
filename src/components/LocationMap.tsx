@@ -52,6 +52,9 @@ export default function LocationMap() {
 						`;
 
               const map = new window.kakao.maps.Map(container, options);
+
+              map.relayout();
+
               // 결과값으로 받은 위치를 마커로 표시
               new window.kakao.maps.Marker({
                 map: map,
@@ -83,7 +86,7 @@ export default function LocationMap() {
       });
     };
     onLoadKakaoMap();
-  }, []);
+  });
 
   return (
     <>
