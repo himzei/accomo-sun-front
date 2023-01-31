@@ -5,8 +5,8 @@ import "@fontsource/montserrat";
 
 const theme = extendTheme({
   fonts: {
-    heading: `Pretendard-Regular, Montserrat`,
-    body: "Pretendard-Regular, Montserrat",
+    heading: `Pretendard-Regular, Montserrat, Spoqa Han Sans Neo`,
+    body: "Pretendard-Regular, Montserrat, Spoqa Han Sans Neo",
   },
 });
 

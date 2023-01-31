@@ -7,53 +7,62 @@ import { Link } from "react-router-dom";
 
 export default function ListThree() {
   return (
-    <GridItem w="100%" position="relative">
-      <VStack alignItems={"flex-start"}>
-        <Box rounded="xl" overflow={"hidden"}>
-          <Image
-            width="416px"
-            height="234px"
-            src={
-              "https://images.unsplash.com/photo-1503423571797-2d2bb372094a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
-            }
-          />
-        </Box>
+    <Link to="/motels/1">
+      <GridItem w="100%" position="relative" role="group">
+        <VStack alignItems={"flex-start"}>
+          <Box rounded="xl" overflow={"hidden"}>
+            <Image
+              transition="0.4s"
+              _groupHover={{
+                transform: "scale(1.1)",
+              }}
+              width="416px"
+              height="234px"
+              src={
+                "https://images.unsplash.com/photo-1503423571797-2d2bb372094a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
+              }
+            />
+          </Box>
 
-        <VStack spacing="1">
-          <Text fontSize={22} fontWeight={600}>
-            [동성로]아이캔 스터디룸
-          </Text>
-          <Text fontSize={14}>#취업스터디룸 #멋진뷰 #스터디카페</Text>
-        </VStack>
-        <HStack spacing="2">
-          <HStack>
+          <VStack spacing="1">
             <Text
-              fontFamily={"Monteserat"}
-              color="#D50000"
-              fontSize="24"
-              fontWeight={700}
+              fontSize={22}
+              fontWeight={600}
+              transition="0.4s"
+              _groupHover={{ color: "#D50000" }}
             >
-              10,000
+              [동성로]아이캔 스터디룸
             </Text>
-            <Text color="gray.700" fontSize="12">
-              원/시간
-            </Text>
+            <Text fontSize={14}>#취업스터디룸 #멋진뷰 #스터디카페</Text>
+          </VStack>
+          <HStack spacing="2">
+            <HStack>
+              <Text
+                fontFamily={"Monteserat"}
+                color="#D50000"
+                fontSize="24"
+                fontWeight={700}
+              >
+                10,000
+              </Text>
+              <Text color="gray.700" fontSize="12">
+                원/시간
+              </Text>
+            </HStack>
+            <HStack spacing={1}>
+              <BsFillPersonFill color="gray" />
+              <Text fontSize="12" color="gray.700">
+                4~12인
+              </Text>
+            </HStack>
+            <HStack spacing={1}>
+              <FaTrain color="gray" />
+              <Text fontSize="12" color="gray.700">
+                중앙로역
+              </Text>
+            </HStack>
           </HStack>
-          <HStack spacing={1}>
-            <BsFillPersonFill color="gray" />
-            <Text fontSize="12" color="gray.700">
-              4~12인
-            </Text>
-          </HStack>
-          <HStack spacing={1}>
-            <FaTrain color="gray" />
-            <Text fontSize="12" color="gray.700">
-              중앙로역
-            </Text>
-          </HStack>
-        </HStack>
-      </VStack>
-      <Link to="/motels/1">
+        </VStack>
         <Box
           position={"absolute"}
           top="0"
@@ -77,7 +86,7 @@ export default function ListThree() {
             </HStack>
           </HStack>
         </Box>
-      </Link>
-    </GridItem>
+      </GridItem>
+    </Link>
   );
 }

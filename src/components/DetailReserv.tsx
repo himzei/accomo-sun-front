@@ -9,6 +9,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { IoIosArrowForward } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 export default function DetailReserv() {
   return (
@@ -53,9 +54,11 @@ export default function DetailReserv() {
                     <Text fontSize="sm">객실이용안내</Text>
                     <IoIosArrowForward />
                   </HStack>
-                  <Button colorScheme={"red"} w="full" size="sm">
-                    <Text fontSize={"sm"}>예약</Text>
-                  </Button>
+                  <Link to="/companies/checkout">
+                    <Button colorScheme={"red"} w="full" size="sm">
+                      <Text fontSize={"sm"}>예약</Text>
+                    </Button>
+                  </Link>
                 </VStack>
               </HStack>
             </GridItem>

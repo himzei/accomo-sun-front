@@ -50,12 +50,12 @@ interface IRoomDetail {
 }
 
 export default function Detail() {
-  const [locationStyle, setLocationStyle] = useState({});
   const { pathname } = useLocation();
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+
+  const [locationStyle, setLocationStyle] = useState({});
   const { roomPk } = useParams();
   const { isLoading, data } = useQuery<IRoomDetail>(["room", roomPk], getRoom);
   console.log(isLoading, data);

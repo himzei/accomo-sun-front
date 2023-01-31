@@ -11,6 +11,7 @@ import Users from "./routes/Users";
 import NaverConfirm from "./routes/NaverConfirm";
 import UploadRoom from "./routes/UploadRoom";
 import UploadPhotos from "./routes/UploadPhotos";
+import CheckOut from "./routes/CheckOut";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,11 @@ const router = createBrowserRouter([
         path: "rooms/upload",
         element: <UploadRoom />,
       },
+      {
+        path: "companies/checkout",
+        element: <CheckOut />,
+      },
+
       {
         path: "motels/:roomPk",
         element: <Detail />,
